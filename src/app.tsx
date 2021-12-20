@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './app.less';
+import { RecoilRoot } from 'recoil';
 
 class App extends Component {
   // componentDidMount() {
@@ -16,7 +17,11 @@ class App extends Component {
 
   // this.props.children 是将要会渲染的页面
   render() {
-    return this.props.children;
+    return (
+      <RecoilRoot>
+        {this.props.children}
+      </RecoilRoot>
+    );
   }
 }
 
