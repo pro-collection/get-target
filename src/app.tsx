@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import 'taro-ui/dist/style/index.scss' // 引入组件样式
 import './app.less';
 import { RecoilRoot } from 'recoil';
 

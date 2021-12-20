@@ -1,24 +1,38 @@
-import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { FC } from 'react';
+import { View, Text } from '@tarojs/components';
+import { AtButton, AtTabBar } from 'taro-ui';
 
-import "taro-ui/dist/style/components/button.scss" // 按需引入
-import './index.less'
+import 'taro-ui/dist/style/components/button.scss'; // 按需引入
+import './index.less';
+import { useRecoilState } from 'recoil';
+import numberAtom from './store/number';
 
-export default class Index extends Component {
 
+const Index: FC = () => {
+  const [state, setState] = useRecoilState(numberAtom);
 
+  const add = () => setState(state + 1);
+  const decrease = () => setState(state - 1);
 
-  render () {
-    return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-        <AtButton type='primary'>I need Taro UI</AtButton>
-        <Text>Taro UI 支持 Vue 了吗？</Text>
-        <AtButton type='primary' circle={true}>支持</AtButton>
-        <Text>共建？</Text>
-        <AtButton type='secondary' circle={true}>来</AtButton>
+  return (
+    <View className='index'>
+      <View>
+        <Text className='at-article__h3'>{state}</Text>
       </View>
-    )
-  }
-}
+      <View className='at-row at-row--wrap'>
+        <View className='at-col at-col-4'>
+          <AtButton onClick={add}>
+            添加
+          </AtButton>
+        </View>
+        <View className='at-col at-col-4'>
+          <AtButton onClick={decrease}>
+            减少
+          </AtButton>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+export default Index;
