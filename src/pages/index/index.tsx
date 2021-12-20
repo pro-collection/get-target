@@ -20,12 +20,12 @@ const Index: FC = () => {
         <Text className='at-article__h3'>{state}</Text>
       </View>
       <View className='at-row at-row--wrap'>
-        <View className='at-col at-col-4'>
+        <View className='at-col at-col-6'>
           <AtButton onClick={add}>
             添加
           </AtButton>
         </View>
-        <View className='at-col at-col-4'>
+        <View className='at-col at-col-6'>
           <AtButton onClick={decrease}>
             减少
           </AtButton>
